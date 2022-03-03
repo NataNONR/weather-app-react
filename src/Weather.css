@@ -1,0 +1,52 @@
+.Weather {
+  border: 1px solid #949494;
+  border-radius: 4px;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 16px;
+  margin: 30px auto;
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+h1 {
+  color: #949494;
+  font-size: 24px;
+  font-weight: 100;
+  line-height: 29px;
+  margin: 20px 0 0 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+li {
+  font-size: 16px;
+  font-weight: 100;
+  line-height: 19px;
+  list-style: none;
+}
+
+img {
+  margin-right: 10px;
+  display: inline;
+  height: 64px;
+  vertical-align: top;
+}
+
+.degreeSection,
+.numberSection {
+  display: inline-block;
+}
+
+.temp {
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 64px;
+}
+
+.unit {
+  vertical-align: top;
+}
