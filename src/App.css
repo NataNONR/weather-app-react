@@ -8,6 +8,10 @@ footer {
   margin: 10px 0 0 0;
 }
 
+.footerLink {
+  margin-right: 5px;
+}
+
 a {
   text-decoration: none;
 }

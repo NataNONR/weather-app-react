@@ -7,7 +7,17 @@ export default function App() {
     <div className="App">
       <div className="container">
         <Weather defaultCity="Bangkok" />
-        <footer>Coded by Nattha Oroz</footer>
+        <footer>
+          <a
+            className="footerLink"
+            href="https://github.com/NataNONR/weather-app-react"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Open-source code
+          </a>
+          by Nattha Oroz
+        </footer>
       </div>
     </div>
   );
