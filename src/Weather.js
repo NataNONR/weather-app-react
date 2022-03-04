@@ -15,11 +15,12 @@ export default function Weather(props) {
       humidity: response.data.main.humidity,
       windspeed: response.data.wind.speed,
       city: response.data.name,
-      iconURL: "https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png",
+      icon: response.data.weather[0].icon,
       date: new Date(response.data.dt * 1000),
     });
   }
 
+  // `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
   function search() {
     const apiKey = "c4be51f5046646283f0c3e060fe5427e";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;

@@ -29,10 +29,11 @@ li {
   list-style: none;
 }
 
-img {
+.icon,
+canvas {
   margin-right: 10px;
+  margin-top: 5px;
   display: inline;
-  height: 64px;
   vertical-align: top;
 }
 
