@@ -18,13 +18,11 @@ export default function WeatherInfo(props) {
         <div className="col-6">
           <div className="degreeSection">
             <div className="icon float-left">
-              <WeatherIcon code={props.info.icon} />
+              <WeatherIcon code={props.info.icon} size={48} />
             </div>
 
             <div className="numberSection float-left">
               <WeatherTemperature celcius={props.info.temperature} />
-
-              
             </div>
           </div>
         </div>
