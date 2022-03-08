@@ -31,7 +31,6 @@ li {
 
 .icon,
 canvas {
-  margin-right: 10px;
   margin-top: 5px;
   display: inline;
   vertical-align: top;
@@ -43,6 +42,7 @@ canvas {
 }
 
 .temp {
+  margin-left: 10px;
   font-weight: 400;
   font-size: 64px;
   line-height: 64px;
