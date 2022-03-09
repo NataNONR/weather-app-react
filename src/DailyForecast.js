@@ -1,31 +1,45 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import WeatherIcon from "./WeatherIcon";
+import DailyForecastDay from "./DailyForecastDay";
 import "./DailyForecast.css";
 
 export default function DailyForecast(props) {
+  let [loaded, setLoaded] = useState(false);
+  let [forecast, setForecast] = useState(null);
+
+  useEffect(() => {
+    setLoaded(false);
+  }, [props.coordinates]);
+
   function handleResponse(response) {
-    console.log(response.data);
+    setForecast(response.data.daily);
+    setLoaded(true);
   }
 
-  const apiKey = "c4be51f5046646283f0c3e060fe5427e";
-  let lat = props.coordinates.lat;
-  let long = props.coordinates.lon;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(handleResponse);
-
-  return (
-    <div className="DailyForecast">
-      <div className="row">
-        <div dailyForecast="col">
-          <div className="DailyForecast-day">MON</div>
-          <WeatherIcon code="01d" size={34} />
-          <div className="DailyForecast-temp">
-            <span className="TempMin">10°</span>
-            <span className="TempMax">25°</span>
-          </div>
+  if (loaded) {
+    return (
+      <div className="DailyForecast">
+        <div className="row">
+          {forecast.map(function (eachDay, index) {
+            if (index < 5) {
+              return (
+                <div className="col" key={index}>
+                  <DailyForecastDay daily={eachDay} />
+                </div>
+              );
+            }
+            return null;
+          })}
         </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    const apiKey = "c4be51f5046646283f0c3e060fe5427e";
+    let lat = props.coordinates.lat;
+    let long = props.coordinates.lon;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleResponse);
+
+    return null;
+  }
 }
